@@ -55,12 +55,34 @@ public class ProfileFragment extends Fragment {
 
         //get Firebase instance
         auth = FirebaseAuth.getInstance();
+       //databaseReference = FirebaseDatabase.getInstance().getReference(auth.getUid());
         if(auth.getCurrentUser() != null) {
+
+
             //get Instance of database Firebase
+            databaseReference = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference member = databaseReference.child(auth.getUid());
+            ValueEventListener valueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(!dataSnapshot.exists()){
+                        Intent intent = new Intent(getActivity(), EditProfile.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getActivity(),"Exista user", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            };
+            member.addListenerForSingleValueEvent(valueEventListener);
+
             databaseReference = FirebaseDatabase.getInstance().getReference();
             firebaseDatabase = FirebaseDatabase.getInstance();
             firebaseStorage = FirebaseStorage.getInstance();
-
 
 
             DatabaseReference databaseReference = firebaseDatabase.getReference(auth.getUid());
@@ -76,6 +98,7 @@ public class ProfileFragment extends Fragment {
             logoutButton = view2.findViewById(R.id.logoutProfileButton);
 
             //set up the profile image
+
             storageReference.child(auth.getUid()).child("Images").child("Profile Pic").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
