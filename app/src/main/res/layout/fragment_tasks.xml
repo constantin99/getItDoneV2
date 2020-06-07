@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".TasksFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Tasks Fragment"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:gravity="center"
-        />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <Spinner
+            android:id="@+id/spinnerDates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasksRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnerDates">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+        <!--    <TextView-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:text="Tasks Fragment"-->
+        <!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
+        <!--        android:gravity="center"-->
+        <!--        />-->
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

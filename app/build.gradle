@@ -61,4 +61,5 @@ dependencies {
 
     //FirestoreUI Library
     implementation 'com.firebaseui:firebase-ui-storage:6.2.1'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
 }
