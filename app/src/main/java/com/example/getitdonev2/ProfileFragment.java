@@ -66,7 +66,7 @@ public class ProfileFragment extends Fragment {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if(!dataSnapshot.exists()){
-                        Intent intent = new Intent(getActivity(), EditProfile.class);
+                        Intent intent = new Intent(getActivity().getApplicationContext(), EditProfile.class);
                         startActivity(intent);
                     } else {
                         Toast.makeText(getActivity(),"Exista user", Toast.LENGTH_SHORT).show();
