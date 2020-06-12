@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TasksActivity"></activity>
+        <activity android:name=".NotificationsSetup"></activity>
+        <activity android:name=".TasksActivity" />
         <activity android:name=".AddTask" />
         <activity android:name=".EditProfile" />
         <activity android:name=".RegisterActivity" />
@@ -21,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ReminderBroadcast" />
+        <receiver android:name=".ReminderBroadcastPause"/>
+        <receiver android:name=".ReminderBroadcastFinish"/>
     </application>
 
 </manifest>

@@ -7,7 +7,10 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.ClipData;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,11 +22,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static final String CHANNEL_1_ID = "channelStartDate";
+    public static final String CHANNEL_2_ID = "channelPause";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        createNotificatonChannel();
+        //createNotificationsChannels();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         //remove the button login item
@@ -33,9 +39,34 @@ public class MainActivity extends AppCompatActivity {
          NavigationUI.setupWithNavController(bottomNavigationView, navController);
          NavigationUI.setupActionBarWithNavController(this, navController);
 
-
-
     }
+
+    private void  createNotificatonChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "Notifications for tasks";
+            String description = "Pause time and work time";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("channel1", name, importance);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+//    private void createNotificationsChannels(){
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            NotificationChannel channelStart = new NotificationChannel(CHANNEL_1_ID, "Channel Start", NotificationManager.IMPORTANCE_DEFAULT);
+//            channelStart.setDescription("Starting channel");
+//
+//            //Channel 2
+//            NotificationChannel channelPause = new NotificationChannel(CHANNEL_2_ID, "Channel Pause", NotificationManager.IMPORTANCE_DEFAULT);
+//            channelPause.setDescription("Pause channel");
+//
+//            NotificationManager manager = getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(channelStart);
+//            manager.createNotificationChannel(channelPause);
+//        }
+//    }
 
 
 

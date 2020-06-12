@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class TasksFragment extends Fragment {
     private Spinner spinnerDates;
     private String userEmail, string;
     private RecyclerView recyclerView;
+
 
 
 
@@ -133,7 +135,6 @@ public class TasksFragment extends Fragment {
 
     public void setUpRecyclerView(String userEmail, String selectedDate){
 
-
             tasksRef = firestoreDB.collection("Tasks").document(userEmail).collection("Tasks").document(selectedDate).collection(selectedDate);
 
             // Query query = tasksRef.orderBy("numberOfPomodoros", Query.Direction.DESCENDING);
@@ -149,7 +150,7 @@ public class TasksFragment extends Fragment {
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(adapter);
 
-            //swipe to delete
+        //swipe to delete
             new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
                 @Override
                 public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {

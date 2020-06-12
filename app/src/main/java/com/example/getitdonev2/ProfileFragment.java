@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ public class ProfileFragment extends Fragment {
     private TextView usernameProfileTextView, nameProfileTextView, surnameProfileTextView, descriptionProfileTextView, email;
     private Button logoutButton;
     private View view1, view2;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
