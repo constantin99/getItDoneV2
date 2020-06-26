@@ -24,6 +24,10 @@ android {
 
 }
 
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -62,4 +66,13 @@ dependencies {
     //FirestoreUI Library
     implementation 'com.firebaseui:firebase-ui-storage:6.2.1'
     implementation 'com.firebaseui:firebase-ui-firestore:6.2.1'
+
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //calendar
+    implementation 'com.applandeo:material-calendar-view:1.4.0'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+
 }

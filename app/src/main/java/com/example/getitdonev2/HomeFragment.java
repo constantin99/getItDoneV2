@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.GregorianCalendar;
 
 public class HomeFragment extends Fragment  {
@@ -29,13 +31,18 @@ public class HomeFragment extends Fragment  {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 calendar = new GregorianCalendar(year, month, dayOfMonth);
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                if(auth.getCurrentUser() == null){
+                    Toast.makeText(getActivity(), "Nu sunteti logat", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 //setting the date as string
                 String stringDate =(String) DateFormat.format("yyyy-MM-dd HH:mm:ss", calendar.getTime());
                 //passData(stringDate);
                 Intent intent = new Intent(getActivity(),AddTask.class);
                 intent.putExtra("date", stringDate);
                 startActivity(intent);
-                Toast.makeText(getActivity(),"Merge",Toast.LENGTH_SHORT).show();
+
             }
         });
         return view1;
