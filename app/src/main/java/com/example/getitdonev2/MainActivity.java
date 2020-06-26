@@ -6,10 +6,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ClipData;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,10 +21,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toolbar;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    private LottieAnimationView lottieAnimationView;
     public static final String CHANNEL_1_ID = "channelStartDate";
     public static final String CHANNEL_2_ID = "channelPause";
     @Override
@@ -31,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         createNotificatonChannel();
         //createNotificationsChannels();
 
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         //remove the button login item
         //bottomNavigationView.getMenu().removeItem(R.id.loginFragment);
@@ -38,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
          NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
          NavigationUI.setupWithNavController(bottomNavigationView, navController);
          NavigationUI.setupActionBarWithNavController(this, navController);
+
 
     }
 

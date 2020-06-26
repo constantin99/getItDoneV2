@@ -4,20 +4,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".TasksFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:lottie_loop="true"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:lottie_fileName="task.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingTop="100dp"
+        >
+
+
 
         <Spinner
             android:id="@+id/spinnerDates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tasksRecyclerView"
@@ -28,13 +48,37 @@
         </androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
-        <!--    <TextView-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="match_parent"-->
-        <!--        android:text="Tasks Fragment"-->
-        <!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
-        <!--        android:gravity="center"-->
-        <!--        />-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_access_time_black_24dp"
+        android:contentDescription="Floating"
+        android:layout_margin="32dp"
+        android:backgroundTint="@color/floatingBackground"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingGraph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_graphic_eq_black_24dp"
+        android:contentDescription="Floating"
+        app:backgroundTint="@color/colorAccent"
+        android:layout_marginBottom="32dp"
+        android:layout_marginRight="90dp"
+        android:backgroundTint="@color/colorAccent"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
 
 
 

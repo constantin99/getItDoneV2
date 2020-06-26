@@ -3,4 +3,13 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="floatingBackground">#F52C81</color>
+    <color name="navigationBarView">#344955</color>
+    <color name="navigationItem">#F9AA33</color>
+    <color name="actionBarColor">#4A6572</color>
+    <color name="actionBarColor2">#F2E7FE</color>
+    <color name="profileImageView">#506A7C</color>
+    <color name="school">#6A1B9A</color>
+    <color name="work">#AD1457</color>
+    <color name="hobbies">#C62828</color>
 </resources>
